@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YHLongPressDragGestureRecognizer : UILongPressGestureRecognizer
 
-@property (nonatomic, weak) id<YHLongPressDragGestureDelegate> movDelegate;
+@property (nonatomic, weak) id<YHLongPressDragGestureDelegate> dragDelegate;
 
 @end
 

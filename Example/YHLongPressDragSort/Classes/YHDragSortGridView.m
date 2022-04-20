@@ -99,7 +99,7 @@
         perView = array.lastObject;
     }];
     [self.subItemViews.lastObject mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.offset(-self.edgeInsets.bottom);
+        make.bottom.mas_lessThanOrEqualTo(-self.edgeInsets.bottom);
     }];
     
     [UIView animateWithDuration:0.2 animations:^{

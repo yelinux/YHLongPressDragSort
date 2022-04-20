@@ -26,18 +26,18 @@
 - (void)longPress: (UILongPressGestureRecognizer*)sender{
     switch (sender.state) {
         case UIGestureRecognizerStateBegan:
-            [self.movDelegate yh_LongPressDragGestureBegin:self.touchBeginPoint];
+            [self.dragDelegate yh_LongPressDragGestureBegin:self.touchBeginPoint];
             break;
         case UIGestureRecognizerStateChanged:{
             CGPoint point = [sender locationInView:self.view];
-            [self.movDelegate yh_LongPressDragGestureMove:point];
+            [self.dragDelegate yh_LongPressDragGestureMove:point];
         }
             break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateFailed:
             if (!CGPointEqualToPoint(self.touchBeginPoint, CGPointZero)) {
-                [self.movDelegate yh_LongPressDragGestureEnd];
+                [self.dragDelegate yh_LongPressDragGestureEnd];
             }
             break;
         default:
@@ -50,7 +50,7 @@
     CGPoint point = [touch locationInView:self.view];
     
     self.touchBeginPoint = point;
-    if ([self.movDelegate yh_LongPressDragGestureRecognize:point]) {
+    if ([self.dragDelegate yh_LongPressDragGestureRecognize:point]) {
         [super touchesBegan:touches withEvent:event];
     }
 }

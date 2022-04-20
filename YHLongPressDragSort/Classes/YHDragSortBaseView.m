@@ -109,7 +109,7 @@
 - (YHLongPressDragGestureRecognizer *)longPressDragGest{
     if (_longPressDragGest == nil) {
         _longPressDragGest = [[YHLongPressDragGestureRecognizer alloc] init];
-        _longPressDragGest.movDelegate = self;
+        _longPressDragGest.dragDelegate = self;
     }
     return _longPressDragGest;
 }

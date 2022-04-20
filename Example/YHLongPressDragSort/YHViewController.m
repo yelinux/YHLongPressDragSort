@@ -9,6 +9,7 @@
 #import "YHViewController.h"
 #import "YHLongPressDragSortVC.h"
 #import "YHNestLongPressDragSortVC.h"
+#import "YHCollectionDemoVC.h"
 
 @interface YHViewController ()
 
@@ -30,6 +31,11 @@
 
 - (IBAction)click1:(id)sender {
     YHNestLongPressDragSortVC *vc = [[YHNestLongPressDragSortVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)click2:(id)sender {
+    YHCollectionDemoVC *vc = [[YHCollectionDemoVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -10,5 +10,7 @@
 #define YHLongPressDragSort_h
 
 #import "UIView+YHLongPressDrag.h"
+#import "YHLongPressDragGestureRecognizer.h"
+#import "YHDragSortCollectionBaseView.h"
 
 #endif /* YHLongPressDragSort_h */
