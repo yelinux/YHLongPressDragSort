@@ -1,0 +1,22 @@
+{
+  "name": "YHLongPressDragSort",
+  "version": "0.1.0",
+  "summary": "A short description of YHLongPressDragSort.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ye_linux@126.com/YHLongPressDragSort",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ye_linux@126.com": "ye_linux@126.com"
+  },
+  "source": {
+    "git": "https://github.com/ye_linux@126.com/YHLongPressDragSort.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "YHLongPressDragSort/Classes/**/*"
+}

@@ -21,6 +21,10 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		817C865C280FD517003D7D55 /* YHNestLongPressDragSortVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C865B280FD517003D7D55 /* YHNestLongPressDragSortVC.m */; };
+		81D7DF6E280FB7D200AD2FCA /* YHDragSortGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF6D280FB7D200AD2FCA /* YHDragSortGridView.m */; };
+		81D7DF71280FB80A00AD2FCA /* YHLongPressDragSortVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF6F280FB80A00AD2FCA /* YHLongPressDragSortVC.m */; };
+		81D7DF74280FB91100AD2FCA /* MovItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF72280FB91100AD2FCA /* MovItemView.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		986152E6CEF5AF35B72F6A42 /* Pods_YHLongPressDragSort_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2077A1C8306E4A735DFD05A /* Pods_YHLongPressDragSort_Example.framework */; };
 		C28EB6D53E5F1A54B6DBDB32 /* Pods_YHLongPressDragSort_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F06909C3511EB2DB7CF014A /* Pods_YHLongPressDragSort_Tests.framework */; };
@@ -59,14 +63,22 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		817C865A280FD517003D7D55 /* YHNestLongPressDragSortVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YHNestLongPressDragSortVC.h; path = Demo/YHNestLongPressDragSortVC.h; sourceTree = "<group>"; };
+		817C865B280FD517003D7D55 /* YHNestLongPressDragSortVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YHNestLongPressDragSortVC.m; path = Demo/YHNestLongPressDragSortVC.m; sourceTree = "<group>"; };
+		81D7DF6C280FB7D200AD2FCA /* YHDragSortGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHDragSortGridView.h; path = Classes/YHDragSortGridView.h; sourceTree = "<group>"; };
+		81D7DF6D280FB7D200AD2FCA /* YHDragSortGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHDragSortGridView.m; path = Classes/YHDragSortGridView.m; sourceTree = "<group>"; };
+		81D7DF6F280FB80A00AD2FCA /* YHLongPressDragSortVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHLongPressDragSortVC.m; path = Demo/YHLongPressDragSortVC.m; sourceTree = "<group>"; };
+		81D7DF70280FB80A00AD2FCA /* YHLongPressDragSortVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHLongPressDragSortVC.h; path = Demo/YHLongPressDragSortVC.h; sourceTree = "<group>"; };
+		81D7DF72280FB91100AD2FCA /* MovItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MovItemView.m; path = Demo/MovItemView.m; sourceTree = "<group>"; };
+		81D7DF73280FB91100AD2FCA /* MovItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovItemView.h; path = Demo/MovItemView.h; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2077A1C8306E4A735DFD05A /* Pods_YHLongPressDragSort_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YHLongPressDragSort_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A4FBD67861E8DCDA43D11936 /* YHLongPressDragSort.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YHLongPressDragSort.podspec; path = ../YHLongPressDragSort.podspec; sourceTree = "<group>"; };
+		A4FBD67861E8DCDA43D11936 /* YHLongPressDragSort.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YHLongPressDragSort.podspec; path = ../YHLongPressDragSort.podspec; sourceTree = "<group>"; };
 		A962365F75C890A34A39409E /* Pods-YHLongPressDragSort_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHLongPressDragSort_Example.debug.xcconfig"; path = "Target Support Files/Pods-YHLongPressDragSort_Example/Pods-YHLongPressDragSort_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A9BCA12B2C42DC06CA79CADD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A9BCA12B2C42DC06CA79CADD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AEA71A9EE7D26AF8EADCE55F /* Pods-YHLongPressDragSort_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHLongPressDragSort_Tests.debug.xcconfig"; path = "Target Support Files/Pods-YHLongPressDragSort_Tests/Pods-YHLongPressDragSort_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B10B3FDD14BAD3C883006386 /* Pods-YHLongPressDragSort_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHLongPressDragSort_Example.release.xcconfig"; path = "Target Support Files/Pods-YHLongPressDragSort_Example/Pods-YHLongPressDragSort_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B1A89778E4AE42ED65D2FD5C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		B1A89778E4AE42ED65D2FD5C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +144,8 @@
 		6003F593195388D20070C39A /* Example for YHLongPressDragSort */ = {
 			isa = PBXGroup;
 			children = (
+				81D7DF68280FB77200AD2FCA /* Demo */,
+				81D7DF64280FB6A800AD2FCA /* Classes */,
 				6003F59C195388D20070C39A /* YHAppDelegate.h */,
 				6003F59D195388D20070C39A /* YHAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -185,6 +199,28 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		81D7DF64280FB6A800AD2FCA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				81D7DF6C280FB7D200AD2FCA /* YHDragSortGridView.h */,
+				81D7DF6D280FB7D200AD2FCA /* YHDragSortGridView.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		81D7DF68280FB77200AD2FCA /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				81D7DF73280FB91100AD2FCA /* MovItemView.h */,
+				81D7DF72280FB91100AD2FCA /* MovItemView.m */,
+				81D7DF70280FB80A00AD2FCA /* YHLongPressDragSortVC.h */,
+				81D7DF6F280FB80A00AD2FCA /* YHLongPressDragSortVC.m */,
+				817C865A280FD517003D7D55 /* YHNestLongPressDragSortVC.h */,
+				817C865B280FD517003D7D55 /* YHNestLongPressDragSortVC.m */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		8DD1E30116EB4C89AFE9A79F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +229,6 @@
 				AEA71A9EE7D26AF8EADCE55F /* Pods-YHLongPressDragSort_Tests.debug.xcconfig */,
 				5A7731B302DBE863CCBAB9E1 /* Pods-YHLongPressDragSort_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +283,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "ye_linux@126.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = C77C4Z7YUK;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +296,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -302,10 +341,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YHLongPressDragSort_Example/Pods-YHLongPressDragSort_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/YHLongPressDragSort/YHLongPressDragSort.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YHLongPressDragSort.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +407,11 @@
 			files = (
 				6003F59E195388D20070C39A /* YHAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* YHViewController.m in Sources */,
+				817C865C280FD517003D7D55 /* YHNestLongPressDragSortVC.m in Sources */,
+				81D7DF71280FB80A00AD2FCA /* YHLongPressDragSortVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				81D7DF74280FB91100AD2FCA /* MovItemView.m in Sources */,
+				81D7DF6E280FB7D200AD2FCA /* YHDragSortGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,11 +539,12 @@
 			baseConfigurationReference = A962365F75C890A34A39409E /* Pods-YHLongPressDragSort_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C77C4Z7YUK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YHLongPressDragSort/YHLongPressDragSort-Prefix.pch";
 				INFOPLIST_FILE = "YHLongPressDragSort/YHLongPressDragSort-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syc.saas.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -510,11 +556,12 @@
 			baseConfigurationReference = B10B3FDD14BAD3C883006386 /* Pods-YHLongPressDragSort_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C77C4Z7YUK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YHLongPressDragSort/YHLongPressDragSort-Prefix.pch";
 				INFOPLIST_FILE = "YHLongPressDragSort/YHLongPressDragSort-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.syc.saas.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;

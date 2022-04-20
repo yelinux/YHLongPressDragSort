@@ -7,6 +7,8 @@
 //
 
 #import "YHViewController.h"
+#import "YHLongPressDragSortVC.h"
+#import "YHNestLongPressDragSortVC.h"
 
 @interface YHViewController ()
 
@@ -18,6 +20,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (IBAction)click0:(id)sender {
+    YHLongPressDragSortVC *vc = [[YHLongPressDragSortVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)click1:(id)sender {
+    YHNestLongPressDragSortVC *vc = [[YHNestLongPressDragSortVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

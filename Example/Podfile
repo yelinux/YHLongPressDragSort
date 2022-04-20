@@ -10,4 +10,7 @@ target 'YHLongPressDragSort_Example' do
 
     
   end
+  
+  pod 'Masonry'
+  
 end

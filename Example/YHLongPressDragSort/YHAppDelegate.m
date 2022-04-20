@@ -7,12 +7,26 @@
 //
 
 #import "YHAppDelegate.h"
+#import "YHViewController.h"
 
 @implementation YHAppDelegate
+
+//org.cocoapods.demo.YHLongPressDragSort-Example
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [storyboard instantiateInitialViewController];
+    vc.title = @"长按拖动排序示例";
+
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

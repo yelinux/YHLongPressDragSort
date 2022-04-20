@@ -1,0 +1,23 @@
+PODS:
+  - Masonry (1.1.0)
+  - YHLongPressDragSort (0.1.0)
+
+DEPENDENCIES:
+  - Masonry
+  - YHLongPressDragSort (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+
+EXTERNAL SOURCES:
+  YHLongPressDragSort:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YHLongPressDragSort: 31cb977ff32506e9aebcba1cf11ff84f696650eb
+
+PODFILE CHECKSUM: 976402464ff97b371f66cab091f6208b7211a76c
+
+COCOAPODS: 1.11.2
