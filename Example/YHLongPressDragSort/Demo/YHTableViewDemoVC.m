@@ -28,7 +28,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
-    tableView.rowHeight = 100;
+    tableView.rowHeight = 120;
     [tableView registerClass:[YHTableViewDemoCell class] forCellReuseIdentifier:NSStringFromClass([YHTableViewDemoCell class])];
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {

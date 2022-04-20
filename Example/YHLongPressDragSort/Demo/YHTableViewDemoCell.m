@@ -42,6 +42,8 @@
     [models addObject:@"2"];
     [models addObject:@"3"];
     [models addObject:@"4"];
+    [models addObject:@"5"];
+    [models addObject:@"6"];
     NSMutableArray *views = NSMutableArray.new;
     [models enumerateObjectsUsingBlock:^(NSString *str, NSUInteger idx, BOOL * _Nonnull stop) {
         MovItemView *itemView = [[MovItemView alloc] init];

@@ -16,6 +16,8 @@
 @property (nonatomic, strong) UIView *dragView;
 @property (nonatomic, assign) CGFloat tempAlpha;
 @property (nonatomic, strong) UIImageView *ivDrag;
+@property (nonatomic, assign) CGPoint startPoint;
+@property (nonatomic, assign) CGPoint startCenter;
 @property (nonatomic, strong) CAKeyframeAnimation *sortingAnim;
 
 @end
@@ -54,6 +56,8 @@
     UIView *view = self.dragView;
     CGRect rect = [self convertRect:view.frame fromView:view.superview];
     self.ivDrag.frame = rect;
+    self.startPoint = point;
+    self.startCenter = self.ivDrag.center;
     
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, view.window.screen.scale);
     [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
@@ -74,7 +78,8 @@
 }
 
 -(void)yh_LongPressDragGestureMove: (CGPoint)point{
-    self.ivDrag.center = point;
+    CGPoint offset = CGPointMake(point.x - self.startPoint.x, point.y - self.startPoint.y);
+    self.ivDrag.center = CGPointMake(self.startCenter.x + offset.x, self.startCenter.y + offset.y);
 
     __block UIView *targetView = nil;
     [self.subItemViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL * _Nonnull stop) {

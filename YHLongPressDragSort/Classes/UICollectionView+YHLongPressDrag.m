@@ -12,6 +12,8 @@
 
 @property (nonatomic, weak) UICollectionView *collectionView;
 @property (nonatomic, strong) UIImageView *ivDrag;
+@property (nonatomic, assign) CGPoint startPoint;
+@property (nonatomic, assign) CGPoint startCenter;
 @property (nonatomic, strong) NSIndexPath *dragingIndexPath;
 @property (nonatomic, strong) NSIndexPath *targetIndexPath;
 
@@ -71,6 +73,8 @@
         [self.collectionView addSubview:self.ivDrag];
         UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:self.dragingIndexPath];
         self.ivDrag.frame = cell.frame;
+        self.startPoint = point;
+        self.startCenter = self.ivDrag.center;
         
         UIGraphicsBeginImageContextWithOptions(cell.bounds.size, YES, cell.window.screen.scale);
         [cell drawViewHierarchyInRect:cell.bounds afterScreenUpdates:NO];
@@ -84,7 +88,8 @@
 
 -(void)yh_LongPressDragGestureMove: (CGPoint)point{
     if (!self.dragingIndexPath) {return;}
-    self.ivDrag.center = point;
+    CGPoint offset = CGPointMake(point.x - self.startPoint.x, point.y - self.startPoint.y);
+    self.ivDrag.center = CGPointMake(self.startCenter.x + offset.x, self.startCenter.y + offset.y);
     
     self.targetIndexPath = nil;
     for (NSIndexPath *indexPath in self.collectionView.indexPathsForVisibleItems) {
