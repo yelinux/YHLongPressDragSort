@@ -37,7 +37,7 @@
     }];
     
     YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
-    view.enableDragAnim = YES;
+    view.yh_enableDragAnim = YES;
     [stackView addArrangedSubview:view];
     
     [view setViews:[self createSubItemViews] colNum:5 itemSpacing:8 itemHeight:50 lineSpacing:8 edgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];

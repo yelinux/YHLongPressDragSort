@@ -12,5 +12,6 @@
 #import "UIView+YHLongPressDrag.h"
 #import "YHLongPressDragGestureRecognizer.h"
 #import "UICollectionView+YHLongPressDrag.h"
+#import "UITableView+YHLongPressDrag.h"
 
 #endif /* YHLongPressDragSort_h */

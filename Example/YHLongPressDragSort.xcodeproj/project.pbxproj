@@ -24,6 +24,8 @@
 		817C865C280FD517003D7D55 /* YHNestLongPressDragSortVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C865B280FD517003D7D55 /* YHNestLongPressDragSortVC.m */; };
 		817C865F280FDA2C003D7D55 /* YHCollectionDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C865E280FDA2C003D7D55 /* YHCollectionDemoVC.m */; };
 		817C8662280FDAA7003D7D55 /* YHCollectionDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C8661280FDAA7003D7D55 /* YHCollectionDemoCell.m */; };
+		817C866D281003DA003D7D55 /* YHTableViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C866C281003DA003D7D55 /* YHTableViewDemoVC.m */; };
+		817C867028100406003D7D55 /* YHTableViewDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 817C866F28100406003D7D55 /* YHTableViewDemoCell.m */; };
 		81D7DF6E280FB7D200AD2FCA /* YHDragSortGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF6D280FB7D200AD2FCA /* YHDragSortGridView.m */; };
 		81D7DF71280FB80A00AD2FCA /* YHLongPressDragSortVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF6F280FB80A00AD2FCA /* YHLongPressDragSortVC.m */; };
 		81D7DF74280FB91100AD2FCA /* MovItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D7DF72280FB91100AD2FCA /* MovItemView.m */; };
@@ -71,6 +73,10 @@
 		817C865E280FDA2C003D7D55 /* YHCollectionDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YHCollectionDemoVC.m; path = Demo/YHCollectionDemoVC.m; sourceTree = "<group>"; };
 		817C8660280FDAA7003D7D55 /* YHCollectionDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YHCollectionDemoCell.h; path = Demo/YHCollectionDemoCell.h; sourceTree = "<group>"; };
 		817C8661280FDAA7003D7D55 /* YHCollectionDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YHCollectionDemoCell.m; path = Demo/YHCollectionDemoCell.m; sourceTree = "<group>"; };
+		817C866B281003DA003D7D55 /* YHTableViewDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YHTableViewDemoVC.h; path = Demo/YHTableViewDemoVC.h; sourceTree = "<group>"; };
+		817C866C281003DA003D7D55 /* YHTableViewDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YHTableViewDemoVC.m; path = Demo/YHTableViewDemoVC.m; sourceTree = "<group>"; };
+		817C866E28100406003D7D55 /* YHTableViewDemoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YHTableViewDemoCell.h; path = Demo/YHTableViewDemoCell.h; sourceTree = "<group>"; };
+		817C866F28100406003D7D55 /* YHTableViewDemoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YHTableViewDemoCell.m; path = Demo/YHTableViewDemoCell.m; sourceTree = "<group>"; };
 		81D7DF6C280FB7D200AD2FCA /* YHDragSortGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YHDragSortGridView.h; path = Classes/YHDragSortGridView.h; sourceTree = "<group>"; };
 		81D7DF6D280FB7D200AD2FCA /* YHDragSortGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHDragSortGridView.m; path = Classes/YHDragSortGridView.m; sourceTree = "<group>"; };
 		81D7DF6F280FB80A00AD2FCA /* YHLongPressDragSortVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YHLongPressDragSortVC.m; path = Demo/YHLongPressDragSortVC.m; sourceTree = "<group>"; };
@@ -227,6 +233,10 @@
 				817C865E280FDA2C003D7D55 /* YHCollectionDemoVC.m */,
 				817C8660280FDAA7003D7D55 /* YHCollectionDemoCell.h */,
 				817C8661280FDAA7003D7D55 /* YHCollectionDemoCell.m */,
+				817C866B281003DA003D7D55 /* YHTableViewDemoVC.h */,
+				817C866C281003DA003D7D55 /* YHTableViewDemoVC.m */,
+				817C866E28100406003D7D55 /* YHTableViewDemoCell.h */,
+				817C866F28100406003D7D55 /* YHTableViewDemoCell.m */,
 			);
 			name = Demo;
 			sourceTree = "<group>";
@@ -419,6 +429,8 @@
 				6003F5A7195388D20070C39A /* YHViewController.m in Sources */,
 				817C865F280FDA2C003D7D55 /* YHCollectionDemoVC.m in Sources */,
 				817C865C280FD517003D7D55 /* YHNestLongPressDragSortVC.m in Sources */,
+				817C866D281003DA003D7D55 /* YHTableViewDemoVC.m in Sources */,
+				817C867028100406003D7D55 /* YHTableViewDemoCell.m in Sources */,
 				817C8662280FDAA7003D7D55 /* YHCollectionDemoCell.m in Sources */,
 				81D7DF71280FB80A00AD2FCA /* YHLongPressDragSortVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

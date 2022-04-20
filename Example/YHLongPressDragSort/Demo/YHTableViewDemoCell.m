@@ -1,18 +1,18 @@
 //
-//  YHCollectionDemoCell.m
+//  YHTableViewDemoCell.m
 //  YHLongPressDragSort_Example
 //
 //  Created by chenyehong on 2022/4/20.
 //  Copyright © 2022 ye_linux@126.com. All rights reserved.
 //
 
-#import "YHCollectionDemoCell.h"
+#import "YHTableViewDemoCell.h"
 #import "MovItemView.h"
 
-@implementation YHCollectionDemoCell
+@implementation YHTableViewDemoCell
 
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
         
         YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
@@ -22,7 +22,7 @@
             make.edges.insets(UIEdgeInsetsZero);
         }];
         
-        [view setViews:[self createSubItemViews] colNum:2 itemSpacing:1 itemHeight:50 lineSpacing:1 edgeInsets:UIEdgeInsetsZero];
+        [view setViews:[self createSubItemViews] colNum:5 itemSpacing:1 itemHeight:50 lineSpacing:1 edgeInsets:UIEdgeInsetsZero];
         
         UILabel *lb = UILabel.new;
         lb.textColor = UIColor.blackColor;

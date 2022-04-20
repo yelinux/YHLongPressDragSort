@@ -1,5 +1,5 @@
 //
-//  UICollectionView+YHLongPressDrag.h
+//  UITableView+YHLongPressDrag.h
 //  YHLongPressDragSort
 //
 //  Created by chenyehong on 2022/4/20.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UICollectionView (YHLongPressDrag)
+@interface UITableView (YHLongPressDrag)
 
 /// 启用拖动排序
 - (void)yh_enableLongPressDrag: (YHIsDragBeginBlock)isDragBeginBlock

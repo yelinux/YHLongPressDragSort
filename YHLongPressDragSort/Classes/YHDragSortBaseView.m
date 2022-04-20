@@ -65,7 +65,7 @@
     self.tempAlpha = self.dragView.alpha;
     self.dragView.alpha = 0;
     
-    if (self.enableDragAnim) {
+    if (self.yh_enableDragAnim) {
         [self.ivDrag.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))];
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
             (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
@@ -107,7 +107,7 @@
     self.ivDrag.transform = CGAffineTransformIdentity;
     self.dragView.alpha = self.tempAlpha;
     
-    if (self.enableDragAnim) {
+    if (self.yh_enableDragAnim) {
         [self.ivDrag.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))];
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
             (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))] : nil;

@@ -39,15 +39,15 @@
     
     YHDragSortGridView *(^createSubGridViewBlock)(void) = ^{
         YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
-        view.enableDragAnim = YES;
-        view.backgroundColor = UIColor.whiteColor;
+        view.yh_enableDragAnim = YES;
+        view.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];;
         [view setViews:[self createSubItemViews2] colNum:2 itemSpacing:2 itemHeight:50 lineSpacing:2 edgeInsets:UIEdgeInsetsZero];
         return view;
     };
     
     void(^addStackSubBlock)(void) = ^{
         YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
-        view.enableDragAnim = YES;
+        view.yh_enableDragAnim = YES;
         [stackView addArrangedSubview:view];
         [view setViews:@[createSubGridViewBlock(), createSubGridViewBlock(),createSubGridViewBlock(), createSubGridViewBlock(), createSubGridViewBlock()] colNum:3 itemSpacing:8 itemHeight:102 lineSpacing:8 edgeInsets:UIEdgeInsetsZero];
     };
