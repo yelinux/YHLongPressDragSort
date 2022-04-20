@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "UICollectionView+YHLongPressDrag.h"
 #import "UIView+YHLongPressDrag.h"
 #import "YHDragSortBaseView.h"
 #import "YHDragSortCollectionBaseView.h"
