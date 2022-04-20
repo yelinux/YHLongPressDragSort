@@ -108,16 +108,20 @@
 }
 
 -(void)yh_LongPressDragGestureEnd{
-    [self.ivDrag removeFromSuperview];
-    self.ivDrag.transform = CGAffineTransformIdentity;
-    self.dragView.alpha = self.tempAlpha;
-    
     if (self.yh_enableDragAnim) {
         [self.ivDrag.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))];
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
             (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
         }];
     }
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.ivDrag.transform = CGAffineTransformIdentity;
+        self.ivDrag.frame = self.dragView.frame;
+    } completion:^(BOOL finished) {
+        self.dragView.alpha = self.tempAlpha;
+        [self.ivDrag removeFromSuperview];
+    }];
 }
 
 // MARK - Getter

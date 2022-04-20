@@ -117,9 +117,14 @@
 
 -(void)yh_LongPressDragGestureEnd{
     if (!self.dragingIndexPath) {return;}
-    [self.collectionView cellForItemAtIndexPath:self.dragingIndexPath].contentView.alpha = 1;
-    self.ivDrag.transform = CGAffineTransformIdentity;
-    [self.ivDrag removeFromSuperview];
+    CGRect endFrame = [self.collectionView cellForItemAtIndexPath:self.dragingIndexPath].frame;
+    [UIView animateWithDuration:0.2 animations:^{
+        self.ivDrag.transform = CGAffineTransformIdentity;
+        self.ivDrag.frame = endFrame;
+    } completion:^(BOOL finished) {
+        [self.ivDrag removeFromSuperview];
+        [self.collectionView cellForItemAtIndexPath:self.dragingIndexPath].contentView.alpha = 1;
+    }];
 }
 
 // Mark - Getter
