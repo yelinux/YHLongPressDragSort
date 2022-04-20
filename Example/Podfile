@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'YHLongPressDragSort_Example' do
+  pod 'YHLongPressDragSort', :path => '../'
+
+  target 'YHLongPressDragSort_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
