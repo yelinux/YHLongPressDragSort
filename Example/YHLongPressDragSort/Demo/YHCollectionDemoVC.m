@@ -42,15 +42,16 @@
         make.edges.insets(UIEdgeInsetsZero);
     }];
     
+    __weak typeof(self)weakSelf = self;
     [self.collectionView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath) {
         return indexPath.row != 0;
     } isDragMoveItem:^BOOL(NSIndexPath * _Nonnull from, NSIndexPath * _Nonnull to) {
         if (to.row != 0) {
             //更新数据源
-            id obj = [self.models objectAtIndex:from.row];
-            [self.models removeObject:obj];
-            [self.models insertObject:obj atIndex:to.row];
-            return YES;
+            id obj = [weakSelf.models objectAtIndex:from.row];
+            [weakSelf.models removeObject:obj];
+            [weakSelf.models insertObject:obj atIndex:to.row];
+            return YES;//允许交换位置
         }
         return NO;
     }];
@@ -71,7 +72,8 @@
 - (NSMutableArray *)models{
     if (_models == nil) {
         _models = NSMutableArray.new;
-        for(int i = 0 ; i < 100 ; i++){
+        [_models addObject:@"此cell不可排"];
+        for(int i = 0 ; i < 99 ; i++){
             [_models addObject:[NSString stringWithFormat:@"%d", i]];
         }
     }

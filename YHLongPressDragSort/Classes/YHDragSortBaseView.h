@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YHDragSortBaseView : UIView
 
 @property (nonatomic, strong) NSArray <UIView*>*subItemViews;
+@property (nonatomic, assign) BOOL enableDragAnim;
+@property (nonatomic, copy) void (^updateSortedBlock)(NSArray <UIView*>*subItemViews);
 -(void)refreshSubItemPosition;
 
 @end

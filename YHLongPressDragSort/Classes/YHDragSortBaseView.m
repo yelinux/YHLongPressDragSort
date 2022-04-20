@@ -65,10 +65,12 @@
     self.tempAlpha = self.dragView.alpha;
     self.dragView.alpha = 0;
     
-    [self.ivDrag.layer addAnimation:self.sortingAnim forKey:nil];
-    [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
-        (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.sortingAnim forKey:nil] : nil;
-    }];
+    if (self.enableDragAnim) {
+        [self.ivDrag.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))];
+        [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
+            (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
+        }];
+    }
 }
 
 -(void)yh_LongPressDragGestureMove: (CGPoint)point{
@@ -87,10 +89,16 @@
     
     if (targetView) {
         NSMutableArray *subItemViews = [NSMutableArray arrayWithArray:self.subItemViews];
-        [subItemViews exchangeObjectAtIndex:[self.subItemViews indexOfObject:targetView] withObjectAtIndex:[self.subItemViews indexOfObject:self.dragView]];
+        NSInteger targetIndex = [subItemViews indexOfObject:targetView];
+        [subItemViews removeObject:self.dragView];
+        [subItemViews insertObject:self.dragView atIndex:targetIndex];
+//        [subItemViews exchangeObjectAtIndex:[self.subItemViews indexOfObject:targetView] withObjectAtIndex:[self.subItemViews indexOfObject:self.dragView]];
         self.subItemViews = subItemViews;
         [self refreshSubItemPosition];
         [self bringSubviewToFront:self.ivDrag];
+        if (self.updateSortedBlock) {
+            self.updateSortedBlock(self.subItemViews);
+        }
     }
 }
 
@@ -99,10 +107,12 @@
     self.ivDrag.transform = CGAffineTransformIdentity;
     self.dragView.alpha = self.tempAlpha;
     
-    [self.ivDrag.layer removeAllAnimations];
-    [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
-        (!view.yh_longPressDragDisable) ? [view.layer removeAllAnimations] : nil;
-    }];
+    if (self.enableDragAnim) {
+        [self.ivDrag.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))];
+        [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
+            (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
+        }];
+    }
 }
 
 // MARK - Getter
