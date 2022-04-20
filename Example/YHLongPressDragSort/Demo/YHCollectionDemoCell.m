@@ -22,6 +22,14 @@
         }];
         
         [view setViews:[self createSubItemViews] colNum:2 itemSpacing:1 itemHeight:50 lineSpacing:1 edgeInsets:UIEdgeInsetsZero];
+        
+        UILabel *lb = UILabel.new;
+        lb.textColor = UIColor.blackColor;
+        [self.contentView addSubview:lb];
+        [lb mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.offset(0);
+        }];
+        _lb = lb;
     }
     return self;
 }
