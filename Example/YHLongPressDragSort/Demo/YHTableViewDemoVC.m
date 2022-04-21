@@ -39,9 +39,12 @@
     _tableView = tableView;
     
     __weak typeof(self)weakSelf = self;
+    // 启用长按拖动排序
     [self.tableView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath, CGPoint pressPoint) {
+        // 哪些cell可以长按拖动排序
         return indexPath.row != 0;
     } dragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
+        // 开始拖动，启用自定义动画
         for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
             if (ixPath.row != 0) {
                 UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
@@ -49,15 +52,17 @@
             }
         }
     } isDragMoveItem:^BOOL(NSIndexPath * _Nonnull from, NSIndexPath * _Nonnull to) {
+        // 拖动到某位置是否确定插入排序
         if (to.row != 0) {
             //更新数据源
             id obj = [weakSelf.models objectAtIndex:from.row];
             [weakSelf.models removeObject:obj];
             [weakSelf.models insertObject:obj atIndex:to.row];
-            return YES;//允许交换位置
+            return YES;//允许插入排序
         }
-        return NO;
+        return NO;//不允许插入排序
     } dragEndBlock:^{
+        // 拖动结束，关闭自定义动画
         for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
             if (ixPath.row != 0) {
                 UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
@@ -75,6 +80,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     YHTableViewDemoCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([YHTableViewDemoCell class]) forIndexPath:indexPath];
     cell.lb.text = [self.models objectAtIndex:indexPath.row];
+    if (!self.nested) {
+        cell.gridView.hidden = YES;
+        cell.contentView.backgroundColor = [UIColor colorWithHue:( arc4random() % 256 / 256.0 ) saturation:( arc4random() % 128 / 256.0 ) + 0.5 brightness:( arc4random() % 128 / 256.0 ) + 0.5 alpha:1];
+    }
     return cell;
 }
 

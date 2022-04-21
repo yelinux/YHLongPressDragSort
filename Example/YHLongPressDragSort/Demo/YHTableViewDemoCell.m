@@ -14,6 +14,7 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
         view.yh_enableDragAnim = YES;
@@ -21,7 +22,7 @@
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.insets(UIEdgeInsetsZero);
         }];
-        
+        _gridView = view;
         [view setViews:[self createSubItemViews] colNum:5 itemSpacing:1 itemHeight:50 lineSpacing:1 edgeInsets:UIEdgeInsetsZero];
         
         UILabel *lb = UILabel.new;

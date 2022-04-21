@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface YHTableViewDemoCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel *lb;
+@property (nonatomic, strong) YHDragSortGridView *gridView;
 
 @end
 

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"长按拖动排序";
+    self.title = @"自定义View长按拖动排序";
     self.view.backgroundColor = UIColor.whiteColor;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
@@ -37,7 +37,7 @@
     }];
     
     YHDragSortGridView *view = [[YHDragSortGridView alloc] init];
-    view.yh_enableDragAnim = YES;
+    view.yh_enableDragAnim = self.isShowDragAnim;
     [stackView addArrangedSubview:view];
     
     [view setViews:[self createSubItemViews] colNum:5 itemSpacing:8 itemHeight:50 lineSpacing:8 edgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];

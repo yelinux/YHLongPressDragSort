@@ -67,6 +67,10 @@
     self.tempAlpha = view.alpha;
     view.alpha = 0;
     
+    [self longPressDragBegin];
+}
+
+-(void)longPressDragBegin{
     if (self.yh_enableDragAnim) {
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
             (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.dragAnim forKey:NSStringFromSelector(@selector(dragAnim))] : nil;
@@ -105,12 +109,6 @@
 }
 
 -(void)yh_LongPressDragGestureEnd{
-    if (self.yh_enableDragAnim) {
-        [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
-            (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(dragAnim))] : nil;
-        }];
-    }
-    
     [UIView animateWithDuration:0.2 animations:^{
         self.ivDrag.transform = CGAffineTransformIdentity;
         self.ivDrag.frame = self.dragView.frame;
@@ -118,6 +116,16 @@
         self.dragView.alpha = self.tempAlpha;
         [self.ivDrag removeFromSuperview];
     }];
+    
+    [self longPressDragEnd];
+}
+
+-(void)longPressDragEnd{
+    if (self.yh_enableDragAnim) {
+        [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
+            (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(dragAnim))] : nil;
+        }];
+    }
 }
 
 // MARK - Getter

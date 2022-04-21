@@ -21,7 +21,7 @@
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.insets(UIEdgeInsetsZero);
         }];
-        
+        _gridView = view;
         [view setViews:[self createSubItemViews] colNum:2 itemSpacing:1 itemHeight:50 lineSpacing:1 edgeInsets:UIEdgeInsetsZero];
         
         UILabel *lb = UILabel.new;

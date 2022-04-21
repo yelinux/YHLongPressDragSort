@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'YHLongPressDragSort'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of YHLongPressDragSort.'
+  s.summary          = 'Enable long press drag sorting for cell and customView of YHLongPressDragSort.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+TODO: Enable long press drag sorting for cell and customView.
                        DESC
 
-  s.homepage         = 'https://github.com/ye_linux@126.com/YHLongPressDragSort'
+  s.homepage         = 'https://github.com/yelinux/YHLongPressDragSort'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'ye_linux@126.com' => 'ye_linux@126.com' }
-  s.source           = { :git => 'https://github.com/ye_linux@126.com/YHLongPressDragSort.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/yelinux/YHLongPressDragSort.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'

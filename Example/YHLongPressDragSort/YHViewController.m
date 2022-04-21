@@ -30,6 +30,12 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)click01:(id)sender {
+    YHLongPressDragSortVC *vc = [[YHLongPressDragSortVC alloc] init];
+    vc.isShowDragAnim = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (IBAction)click1:(id)sender {
     YHNestLongPressDragSortVC *vc = [[YHNestLongPressDragSortVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
@@ -40,8 +46,20 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)click21:(id)sender {
+    YHCollectionDemoVC *vc = [[YHCollectionDemoVC alloc] init];
+    vc.nested = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (IBAction)click3:(id)sender {
     YHTableViewDemoVC *vc = [[YHTableViewDemoVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)click31:(id)sender {
+    YHTableViewDemoVC *vc = [[YHTableViewDemoVC alloc] init];
+    vc.nested = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

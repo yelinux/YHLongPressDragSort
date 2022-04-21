@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"嵌套长按拖动排序";
+    self.title = @"嵌套自定义View长按拖动排序";
     self.view.backgroundColor = UIColor.whiteColor;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];

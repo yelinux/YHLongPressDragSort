@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YHLongPressDragSortVC : UIViewController
 
+@property (nonatomic, assign) BOOL isShowDragAnim;
+
 @end
 
 NS_ASSUME_NONNULL_END

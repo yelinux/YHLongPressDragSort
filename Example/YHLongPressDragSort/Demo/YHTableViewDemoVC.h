@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YHTableViewDemoVC : UIViewController
 
+/// 是否展示嵌套玩法
+@property (nonatomic, assign) BOOL nested;
+
 @end
 
 NS_ASSUME_NONNULL_END

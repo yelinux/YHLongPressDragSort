@@ -10,7 +10,7 @@
 @implementation YHDragSortUtil
 
 + (CAKeyframeAnimation *)createDragAnim{
-    CGFloat (^angle2radian)(int x) = ^(int x){
+    double (^angle2radian)(int x) = ^(int x){
         return ((x)/180.0*M_PI);
     };
     CAKeyframeAnimation *dragAnim = [CAKeyframeAnimation animation];
