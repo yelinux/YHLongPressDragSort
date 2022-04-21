@@ -12,5 +12,6 @@ target 'YHLongPressDragSort_Example' do
   end
   
   pod 'Masonry'
+  pod 'MLeaksFinder', :git => 'https://github.com/Tencent/MLeaksFinder', :configurations => ['Debug']
   
 end

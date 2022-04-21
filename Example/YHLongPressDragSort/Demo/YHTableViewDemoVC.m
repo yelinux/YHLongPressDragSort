@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) NSMutableArray *models;
 
+@property (nonatomic, strong) CAKeyframeAnimation *dragAnim;
+
 @end
 
 @implementation YHTableViewDemoVC
@@ -39,6 +41,13 @@
     __weak typeof(self)weakSelf = self;
     [self.tableView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath) {
         return indexPath.row != 0;
+    } isDragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
+        for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
+            if (ixPath.row != 0) {
+                UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
+                [cell.contentView.layer addAnimation:weakSelf.dragAnim forKey:nil];
+            }
+        }
     } isDragMoveItem:^BOOL(NSIndexPath * _Nonnull from, NSIndexPath * _Nonnull to) {
         if (to.row != 0) {
             //更新数据源
@@ -48,6 +57,13 @@
             return YES;//允许交换位置
         }
         return NO;
+    } dragEndBlock:^{
+        for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
+            if (ixPath.row != 0) {
+                UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
+                [cell.contentView.layer removeAllAnimations];
+            }
+        }
     }];
 }
 
@@ -72,6 +88,13 @@
         }
     }
     return _models;
+}
+
+- (CAKeyframeAnimation *)dragAnim{
+    if (_dragAnim == nil) {
+        _dragAnim = [YHDragSortUtil createDragAnim];
+    }
+    return _dragAnim;
 }
 
 @end

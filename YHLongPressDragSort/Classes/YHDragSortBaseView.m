@@ -8,6 +8,7 @@
 #import "YHDragSortBaseView.h"
 #import "YHLongPressDragGestureRecognizer.h"
 #import "UIView+YHLongPressDrag.h"
+#import "YHDragSortUtil.h"
 
 @interface YHDragSortBaseView()<YHLongPressDragGestureDelegate>
 
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) UIImageView *ivDrag;
 @property (nonatomic, assign) CGPoint startPoint;
 @property (nonatomic, assign) CGPoint startCenter;
-@property (nonatomic, strong) CAKeyframeAnimation *sortingAnim;
+@property (nonatomic, strong) CAKeyframeAnimation *dragAnim;
 
 @end
 
@@ -70,9 +71,8 @@
     self.dragView.alpha = 0;
     
     if (self.yh_enableDragAnim) {
-        [self.ivDrag.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))];
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
-            (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.sortingAnim forKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
+            (!view.yh_longPressDragDisable) ? [view.layer addAnimation:self.dragAnim forKey:NSStringFromSelector(@selector(dragAnim))] : nil;
         }];
     }
 }
@@ -109,9 +109,8 @@
 
 -(void)yh_LongPressDragGestureEnd{
     if (self.yh_enableDragAnim) {
-        [self.ivDrag.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))];
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {
-            (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(sortingAnim))] : nil;
+            (!view.yh_longPressDragDisable) ? [view.layer removeAnimationForKey:NSStringFromSelector(@selector(dragAnim))] : nil;
         }];
     }
     
@@ -140,18 +139,11 @@
     return _ivDrag;
 }
 
-- (CAKeyframeAnimation *)sortingAnim{
-    if (_sortingAnim == nil) {
-        CGFloat (^angle2radian)(int x) = ^(int x){
-            return ((x)/180.0*M_PI);
-        };
-        _sortingAnim = [CAKeyframeAnimation animation];
-        _sortingAnim.keyPath = @"transform.rotation";
-        _sortingAnim.values = @[@(angle2radian(-5)),@(angle2radian(5)),@(angle2radian(-5))];
-        _sortingAnim.repeatCount = MAXFLOAT;
-        _sortingAnim.duration = 0.5;
+- (CAKeyframeAnimation *)dragAnim{
+    if (_dragAnim == nil) {
+        _dragAnim = [YHDragSortUtil createDragAnim];
     }
-    return _sortingAnim;
+    return _dragAnim;
 }
 
 @end

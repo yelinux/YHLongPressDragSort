@@ -1,9 +1,11 @@
 PODS:
   - Masonry (1.1.0)
+  - MLeaksFinder (1.0.0)
   - YHLongPressDragSort (0.1.0)
 
 DEPENDENCIES:
   - Masonry
+  - MLeaksFinder (from `https://github.com/Tencent/MLeaksFinder`)
   - YHLongPressDragSort (from `../`)
 
 SPEC REPOS:
@@ -11,13 +13,21 @@ SPEC REPOS:
     - Masonry
 
 EXTERNAL SOURCES:
+  MLeaksFinder:
+    :git: https://github.com/Tencent/MLeaksFinder
   YHLongPressDragSort:
     :path: "../"
 
+CHECKOUT OPTIONS:
+  MLeaksFinder:
+    :commit: dda7088f1bbe9d1d07e730d37a16413dffa4747a
+    :git: https://github.com/Tencent/MLeaksFinder
+
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MLeaksFinder: 89eb3142bf1bbd0a3d1849543b629399c5da74c5
   YHLongPressDragSort: 31cb977ff32506e9aebcba1cf11ff84f696650eb
 
-PODFILE CHECKSUM: 976402464ff97b371f66cab091f6208b7211a76c
+PODFILE CHECKSUM: c9909ce0937a64dbcdfb227a6cbc8e1257e2ae54
 
 COCOAPODS: 1.11.2

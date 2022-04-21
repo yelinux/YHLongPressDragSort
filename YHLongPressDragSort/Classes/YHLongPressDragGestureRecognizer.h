@@ -9,9 +9,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef BOOL (^YHIsDragBeginBlock)(NSIndexPath *indexPath);
+typedef BOOL (^YHIsDragRecognizeBlock)(NSIndexPath *indexPath);
+typedef void (^YHDragBeginBlock)(NSIndexPath *indexPath);
 typedef BOOL (^YHIsDragMoveItemBlock)(NSIndexPath *from, NSIndexPath *to);
-typedef BOOL (^YHDragEndBlock)(void);
+typedef void (^YHDragEndBlock)(void);
 
 @protocol YHLongPressDragGestureDelegate <NSObject>
 

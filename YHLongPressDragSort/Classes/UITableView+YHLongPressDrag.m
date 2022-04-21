@@ -12,13 +12,16 @@
 
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, strong) UIImageView *ivDrag;
+@property (nonatomic, assign) CGFloat tempAlpha;
 @property (nonatomic, assign) CGPoint startPoint;
 @property (nonatomic, assign) CGPoint startCenter;
 @property (nonatomic, strong) NSIndexPath *dragingIndexPath;
 @property (nonatomic, strong) NSIndexPath *targetIndexPath;
 
-@property (nonatomic, copy) YHIsDragBeginBlock isDragBeginBlock;
+@property (nonatomic, copy) YHIsDragRecognizeBlock isDragRecognizeBlock;
+@property (nonatomic, copy) YHDragBeginBlock dragBeginBlock;
 @property (nonatomic, copy) YHIsDragMoveItemBlock isDragMoveItemBlock;
+@property (nonatomic, copy) YHDragEndBlock dragEndBlock;
 
 @end
 
@@ -31,12 +34,16 @@
 @implementation UITableView (YHLongPressDrag)
 
 /// 启用拖动排序
-- (void)yh_enableLongPressDrag: (YHIsDragBeginBlock)isDragBeginBlock
-                isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock{
+- (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
+              isDragBeginBlock: (YHDragBeginBlock)dragBeginBlock
+                isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock
+                  dragEndBlock: (YHDragEndBlock)dragEndBlock{
     self.delegateObject = [[YHTableViewDragDelegateObject alloc] init];
     self.delegateObject.tableView = self;
-    self.delegateObject.isDragBeginBlock = isDragBeginBlock;
+    self.delegateObject.isDragRecognizeBlock = isDragRecognizeBlock;
+    self.delegateObject.dragBeginBlock = dragBeginBlock;
     self.delegateObject.isDragMoveItemBlock = isDragMoveItemBlock;
+    self.delegateObject.dragEndBlock = dragEndBlock;
     
     YHLongPressDragGestureRecognizer *longPress = [[YHLongPressDragGestureRecognizer alloc] init];
     longPress.dragDelegate = self.delegateObject;
@@ -60,7 +67,7 @@
     self.dragingIndexPath = nil;
     for (NSIndexPath *indexPath in self.tableView.indexPathsForVisibleRows) {
         if (CGRectContainsPoint([self.tableView cellForRowAtIndexPath:indexPath].frame, point)) {
-            if (self.isDragBeginBlock && self.isDragBeginBlock(indexPath)) {
+            if (self.isDragRecognizeBlock && self.isDragRecognizeBlock(indexPath)) {
                 self.dragingIndexPath = indexPath;
             }
             break;
@@ -83,7 +90,10 @@
         UIGraphicsEndImageContext();
         self.ivDrag.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
+        self.tempAlpha = cell.contentView.alpha;
         cell.contentView.alpha = 0;
+        
+        self.dragBeginBlock ? self.dragBeginBlock(self.dragingIndexPath) : nil;
     }
 }
 
@@ -124,8 +134,11 @@
         self.ivDrag.frame = endFrame;
     } completion:^(BOOL finished) {
         [self.ivDrag removeFromSuperview];
-        [self.tableView cellForRowAtIndexPath:self.dragingIndexPath].contentView.alpha = 1;
+        [self.tableView cellForRowAtIndexPath:self.dragingIndexPath].contentView.alpha = self.tempAlpha;
     }];
+    if (self.dragEndBlock) {
+        self.dragEndBlock();
+    }
 }
 
 // Mark - Getter
