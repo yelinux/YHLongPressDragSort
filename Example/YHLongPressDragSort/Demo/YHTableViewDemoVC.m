@@ -39,9 +39,9 @@
     _tableView = tableView;
     
     __weak typeof(self)weakSelf = self;
-    [self.tableView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath) {
+    [self.tableView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath, CGPoint pressPoint) {
         return indexPath.row != 0;
-    } isDragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
+    } dragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
         for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
             if (ixPath.row != 0) {
                 UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];

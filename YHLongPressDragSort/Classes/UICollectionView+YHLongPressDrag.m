@@ -7,6 +7,7 @@
 
 #import "UICollectionView+YHLongPressDrag.h"
 #import <objc/runtime.h>
+#import "YHDragSortUtil.h"
 
 @interface YHCollectionDragDelegateObject : NSObject<YHLongPressDragGestureDelegate>
 
@@ -65,8 +66,9 @@
 -(BOOL)yh_LongPressDragGestureRecognize: (CGPoint)point{
     self.dragingIndexPath = nil;
     for (NSIndexPath *indexPath in self.collectionView.indexPathsForVisibleItems) {
-        if (CGRectContainsPoint([self.collectionView cellForItemAtIndexPath:indexPath].frame, point)) {
-            if (self.isDragRecognizeBlock && self.isDragRecognizeBlock(indexPath)) {
+        CGRect cellFrame = [self.collectionView cellForItemAtIndexPath:indexPath].frame;
+        if (CGRectContainsPoint(cellFrame, point)) {
+            if (self.isDragRecognizeBlock && self.isDragRecognizeBlock(indexPath, CGPointMake(point.x - cellFrame.origin.x, point.y - cellFrame.origin.y))) {
                 self.dragingIndexPath = indexPath;
             }
             break;
@@ -83,10 +85,7 @@
         self.startPoint = point;
         self.startCenter = self.ivDrag.center;
         
-        UIGraphicsBeginImageContextWithOptions(cell.bounds.size, YES, cell.window.screen.scale);
-        [cell drawViewHierarchyInRect:cell.bounds afterScreenUpdates:NO];
-        self.ivDrag.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        self.ivDrag.image = [YHDragSortUtil snapshot:cell];
         self.ivDrag.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
         self.tempAlpha = cell.contentView.alpha;

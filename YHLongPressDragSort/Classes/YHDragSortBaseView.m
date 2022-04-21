@@ -60,15 +60,12 @@
     self.startPoint = point;
     self.startCenter = self.ivDrag.center;
     
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, view.window.screen.scale);
-    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
-    self.ivDrag.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    self.ivDrag.image = [YHDragSortUtil snapshot:view];
     self.ivDrag.transform = CGAffineTransformMakeScale(1.1, 1.1);
     
     [self addSubview:self.ivDrag];
-    self.tempAlpha = self.dragView.alpha;
-    self.dragView.alpha = 0;
+    self.tempAlpha = view.alpha;
+    view.alpha = 0;
     
     if (self.yh_enableDragAnim) {
         [self.subItemViews enumerateObjectsUsingBlock:^(UIView * view, NSUInteger idx, BOOL * _Nonnull stop) {

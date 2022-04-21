@@ -9,9 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef BOOL (^YHIsDragRecognizeBlock)(NSIndexPath *indexPath);
+/// 该cell是否允许拖动，pressPoint-长按cell所在的位置
+typedef BOOL (^YHIsDragRecognizeBlock)(NSIndexPath *indexPath, CGPoint pressPoint);
+/// 开始拖动
 typedef void (^YHDragBeginBlock)(NSIndexPath *indexPath);
+/// 两cell是否允许交换位置，如果允许，更新数据源并返回YES
 typedef BOOL (^YHIsDragMoveItemBlock)(NSIndexPath *from, NSIndexPath *to);
+/// 拖动结束
 typedef void (^YHDragEndBlock)(void);
 
 @protocol YHLongPressDragGestureDelegate <NSObject>

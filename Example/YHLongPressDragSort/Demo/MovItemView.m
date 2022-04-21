@@ -24,8 +24,14 @@
             make.edges.insets(UIEdgeInsetsZero);
         }];
         _lb = lb;
+        
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick)]];
     }
     return self;
+}
+
+- (void)tapClick{
+    NSLog(@"%s", __func__);
 }
 
 @end

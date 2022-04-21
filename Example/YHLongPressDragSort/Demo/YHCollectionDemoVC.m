@@ -45,7 +45,7 @@
     }];
     
     __weak typeof(self)weakSelf = self;
-    [self.collectionView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath) {
+    [self.collectionView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath, CGPoint pressPoint) {
         return indexPath.row != 0;
     } isDragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
         for (NSIndexPath *ixPath in [weakSelf.collectionView indexPathsForVisibleItems]){

@@ -7,6 +7,7 @@
 
 #import "UITableView+YHLongPressDrag.h"
 #import <objc/runtime.h>
+#import "YHDragSortUtil.h"
 
 @interface YHTableViewDragDelegateObject : NSObject<YHLongPressDragGestureDelegate>
 
@@ -33,9 +34,8 @@
 
 @implementation UITableView (YHLongPressDrag)
 
-/// 启用拖动排序
 - (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
-              isDragBeginBlock: (YHDragBeginBlock)dragBeginBlock
+              dragBeginBlock: (YHDragBeginBlock)dragBeginBlock
                 isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock
                   dragEndBlock: (YHDragEndBlock)dragEndBlock{
     self.delegateObject = [[YHTableViewDragDelegateObject alloc] init];
@@ -66,8 +66,9 @@
 -(BOOL)yh_LongPressDragGestureRecognize: (CGPoint)point{
     self.dragingIndexPath = nil;
     for (NSIndexPath *indexPath in self.tableView.indexPathsForVisibleRows) {
-        if (CGRectContainsPoint([self.tableView cellForRowAtIndexPath:indexPath].frame, point)) {
-            if (self.isDragRecognizeBlock && self.isDragRecognizeBlock(indexPath)) {
+        CGRect cellFrame = [self.tableView cellForRowAtIndexPath:indexPath].frame;
+        if (CGRectContainsPoint(cellFrame, point)) {
+            if (self.isDragRecognizeBlock && self.isDragRecognizeBlock(indexPath, CGPointMake(point.x - cellFrame.origin.x, point.y - cellFrame.origin.y))) {
                 self.dragingIndexPath = indexPath;
             }
             break;
@@ -84,10 +85,7 @@
         self.startPoint = point;
         self.startCenter = self.ivDrag.center;
         
-        UIGraphicsBeginImageContextWithOptions(cell.bounds.size, YES, cell.window.screen.scale);
-        [cell drawViewHierarchyInRect:cell.bounds afterScreenUpdates:NO];
-        self.ivDrag.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        self.ivDrag.image = [YHDragSortUtil snapshot:cell];
         self.ivDrag.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
         self.tempAlpha = cell.contentView.alpha;

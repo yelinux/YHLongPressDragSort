@@ -21,4 +21,12 @@
     return dragAnim;
 }
 
++ (UIImage*)snapshot: (UIView*)view{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, YES, view.window.screen.scale);
+    [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:NO];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end
