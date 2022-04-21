@@ -8,13 +8,13 @@
 [![Platform](https://img.shields.io/cocoapods/p/YHLongPressDragSort.svg?style=flat)](https://cocoapods.org/pods/YHLongPressDragSort)
 
 ## Features
-![示例](./preview/1.gif)
-![示例](./preview/2.gif)
-![示例](./preview/3.gif)
 ![示例](./preview/4.gif)
 ![示例](./preview/5.gif)
 ![示例](./preview/6.gif)
 ![示例](./preview/7.gif)
+![示例](./preview/1.gif)
+![示例](./preview/2.gif)
+![示例](./preview/3.gif)
 
 ## Example
 
