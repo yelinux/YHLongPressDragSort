@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YHLongPressDragSort'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Enable long press drag sorting for cell and customView of YHLongPressDragSort.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Enable long press drag sorting for cell and customView.
+TODO: Enable long press drag sorting for UICollectionViewCell, UITableViewCell and customView.
                        DESC
 
   s.homepage         = 'https://github.com/yelinux/YHLongPressDragSort'

@@ -18,7 +18,7 @@
 
 -(instancetype)init{
     if (self = [super initWithTarget:self action:@selector(longPress:)]) {
-
+        self.minimumPressDuration = 0.3f;
     }
     return self;
 }

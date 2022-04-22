@@ -113,11 +113,8 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
     }];
 ```
 
-3. Enable long press drag sorting for your custom view:
+3. Enable long press drag sorting for your custom view（建议参考Example/YHLongPressDragSort/Classes/YHDragSortGridView.h.m）:
 ```objective-c
-
-/* 建议参考Example/YHLongPressDragSort/Classes/YHDragSortGridView.h.m */
-
 #import "YHLongPressDragSort.h"
 
 //继承YHDragSortBaseView基类
@@ -149,7 +146,7 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
 
 ## Author
 
-ye_linux@126.com, ye_linux@126.com
+WeChat:chenyehong666888, E-mail:ye_linux@126.com
 
 ## License
 
