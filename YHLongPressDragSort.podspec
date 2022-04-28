@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YHLongPressDragSort'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'Enable long press drag sorting for cell and customView of YHLongPressDragSort.'
 
 # This description is used to generate tags and improve search results.

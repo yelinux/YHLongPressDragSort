@@ -46,14 +46,6 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
     [self.collectionView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath, CGPoint pressPoint) {
         // 哪些cell可以长按拖动排序
         return indexPath.row != 0;
-    } isDragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
-        // 开始拖动，启用自定义动画
-        for (NSIndexPath *ixPath in [weakSelf.collectionView indexPathsForVisibleItems]){
-            if (ixPath.row != 0) {
-                UICollectionViewCell *cell = [weakSelf.collectionView cellForItemAtIndexPath:ixPath];
-                [cell.contentView.layer addAnimation:weakSelf.dragAnim forKey:nil];
-            }
-        }
     } isDragMoveItem:^BOOL(NSIndexPath * _Nonnull from, NSIndexPath * _Nonnull to) {
         // 拖动到某位置是否确定插入排序
         if (to.row != 0) {
@@ -64,14 +56,6 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
             return YES;//允许插入排序
         }
         return NO;//不允许插入排序
-    } dragEndBlock:^{
-        // 拖动结束，关闭自定义动画
-        for (NSIndexPath *ixPath in [weakSelf.collectionView indexPathsForVisibleItems]){
-            if (ixPath.row != 0) {
-                UICollectionViewCell *cell = [weakSelf.collectionView cellForItemAtIndexPath:ixPath];
-                [cell.contentView.layer removeAllAnimations];
-            }
-        }
     }];
 ```
 
@@ -84,14 +68,6 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
     [self.tableView yh_enableLongPressDrag:^BOOL(NSIndexPath * _Nonnull indexPath, CGPoint pressPoint) {
         // 哪些cell可以长按拖动排序
         return indexPath.row != 0;
-    } dragBeginBlock:^(NSIndexPath * _Nonnull indexPath) {
-        // 开始拖动，启用自定义动画
-        for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
-            if (ixPath.row != 0) {
-                UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
-                [cell.contentView.layer addAnimation:weakSelf.dragAnim forKey:nil];
-            }
-        }
     } isDragMoveItem:^BOOL(NSIndexPath * _Nonnull from, NSIndexPath * _Nonnull to) {
         // 拖动到某位置是否确定插入排序
         if (to.row != 0) {
@@ -102,14 +78,6 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
             return YES;//允许插入排序
         }
         return NO;//不允许插入排序
-    } dragEndBlock:^{
-        // 拖动结束，关闭自定义动画
-        for (NSIndexPath *ixPath in [weakSelf.tableView indexPathsForVisibleRows]){
-            if (ixPath.row != 0) {
-                UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:ixPath];
-                [cell.contentView.layer removeAllAnimations];
-            }
-        }
     }];
 ```
 
