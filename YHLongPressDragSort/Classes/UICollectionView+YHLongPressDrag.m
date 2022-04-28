@@ -35,9 +35,14 @@
 @implementation UICollectionView (YHLongPressDrag)
 
 - (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
-              isDragBeginBlock: (YHDragBeginBlock)dragBeginBlock
+                isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock{
+    [self yh_enableLongPressDrag:isDragRecognizeBlock isDragBeginBlock:nil isDragMoveItem:isDragMoveItemBlock dragEndBlock:nil];
+}
+
+- (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
+              isDragBeginBlock: (nullable YHDragBeginBlock)dragBeginBlock
                 isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock
-                  dragEndBlock: (YHDragEndBlock)dragEndBlock{
+                  dragEndBlock: (nullable YHDragEndBlock)dragEndBlock{
     self.delegateObject = [[YHCollectionDragDelegateObject alloc] init];
     self.delegateObject.collectionView = self;
     self.delegateObject.isDragRecognizeBlock = isDragRecognizeBlock;

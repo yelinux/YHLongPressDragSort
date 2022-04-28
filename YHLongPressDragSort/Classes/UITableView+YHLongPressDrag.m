@@ -35,9 +35,14 @@
 @implementation UITableView (YHLongPressDrag)
 
 - (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
-              dragBeginBlock: (YHDragBeginBlock)dragBeginBlock
+                isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock{
+    [self yh_enableLongPressDrag:isDragRecognizeBlock dragBeginBlock:nil isDragMoveItem:isDragMoveItemBlock dragEndBlock:nil];
+}
+
+- (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
+                dragBeginBlock: (nullable YHDragBeginBlock)dragBeginBlock
                 isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock
-                  dragEndBlock: (YHDragEndBlock)dragEndBlock{
+                  dragEndBlock: (nullable YHDragEndBlock)dragEndBlock{
     self.delegateObject = [[YHTableViewDragDelegateObject alloc] init];
     self.delegateObject.tableView = self;
     self.delegateObject.isDragRecognizeBlock = isDragRecognizeBlock;

@@ -14,13 +14,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 启用拖动排序
 /// @param isDragRecognizeBlock 该cell是否允许拖动
+/// @param isDragMoveItemBlock 两cell是否允许交换位置，如果允许，更新数据源并返回YES
+- (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
+                isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock;
+
+/// 启用拖动排序
+/// @param isDragRecognizeBlock 该cell是否允许拖动
 /// @param dragBeginBlock 开始拖动
 /// @param isDragMoveItemBlock 两cell是否允许交换位置，如果允许，更新数据源并返回YES
 /// @param dragEndBlock 拖动结束
 - (void)yh_enableLongPressDrag: (YHIsDragRecognizeBlock)isDragRecognizeBlock
-              dragBeginBlock: (YHDragBeginBlock)dragBeginBlock
+                dragBeginBlock: (nullable YHDragBeginBlock)dragBeginBlock
                 isDragMoveItem: (YHIsDragMoveItemBlock)isDragMoveItemBlock
-                  dragEndBlock: (YHDragEndBlock)dragEndBlock;
+                  dragEndBlock: (nullable YHDragEndBlock)dragEndBlock;
 
 @end
 
