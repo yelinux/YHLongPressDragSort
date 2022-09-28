@@ -114,7 +114,7 @@ Drag the `YHLongPressDragSort/Classes` folder into your project.
 
 ## Author
 
-WeChat:chenyehong666888, E-mail:ye_linux@126.com
+WeChat:chenyehong666888, E-mail:ichenevan@126.com
 
 ## License
 
